@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zkt.dao.AdoptionMapper">
+
+    <!--功能描述: 增加送养宠物信息-->
+    <insert id="insertAdoption" parameterType="com.zkt.entitys.Adoption">
+        INSERT INTO adoption VALUES(null,#{name},#{sex},#{isVaccine},#{isNeuter},#{isEP},#{describe},#{city},#{detailed},#{kindId},#{petAgeId},#{userId});
+        <selectKey resultType="int" order="AFTER" keyProperty="adid">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <!--功能描述: 增加宠物图片表信息 3张图片地址-->
+    <insert id="inp" parameterType="com.zkt.entitys.PetImages">
+		INSERT INTO petImages VALUES(null,#{img},#{adid});
+    </insert>
+    <!--功能描述: 增加送养表的领养条件限制 关系表-->
+    <insert id="insertRelationship" parameterType="com.zkt.entitys.Relationship">
+			INSERT INTO relationship VALUES( NULL, #{acId}, #{adid});
+    </insert>
+    <!--查询字段-->
+    <resultMap type="com.zkt.entitys.Adoption" id="adoptionMap">
+        <id property="adid" column="adid"></id>
+        <result property="name" column="name"/>
+        <result property="describe" column="describe"/>
+        <result property="isVaccine" column="isVaccine"/>
+        <result property="isEP" column="isEP"/>
+        <result property="isNeuter" column="isNeuter"/>
+        <collection property="petImages" ofType="com.zkt.entitys.PetImages">
+            <result property="img" column="img"></result>
+        </collection>
+        <collection property="petAge" ofType="com.zkt.entitys.PetAge">
+            <result property="age" column="age"></result>
+        </collection>
+    </resultMap>
+
+    <!--根据种类表id查询adoption表-->
+    <select id="getAdoptionList" resultMap="adoptionMap" parameterType="java.util.Map">
+        SELECT
+        petImages.img,
+        adoption.adid,
+        adoption.`name`,
+        petAge.age,
+        adoption.`describe`,
+        adoption.isVaccine,
+        adoption.isEP,
+        adoption.isNeuter
+        FROM
+        adoption
+        INNER JOIN petImages ON adoption.adid = petImages.adid
+        INNER JOIN petAge ON adoption.petAgeId = petAge.ageId
+        where adoption.city=#{city}
+        <if test="kindId !=null and kindId !=''">
+            and adoption.kindId=#{kindId}
+        </if>
+
+    </select>
+    <resultMap id="adoptionMap1" type="com.zkt.entitys.Adoption">
+        <id property="adid" column="adid"></id>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="isVaccine" column="isVaccine"/>
+        <result property="isEP" column="isEP"/>
+        <result property="isNeuter" column="isNeuter"/>
+        <result property="describe" column="describe"/>
+        <result property="city" column="city"/>
+        <result property="detailed" column="detailed"/>
+        <collection property="petImages" ofType="com.zkt.entitys.PetImages">
+            <id property="imgId" column="imgId"></id>
+            <result property="img" column="img"></result>
+        </collection>
+        <collection property="petAge" ofType="com.zkt.entitys.PetAge">
+            <id property="ageId" column="ageId"></id>
+            <result property="age" column="age"></result>
+        </collection>
+        <collection property="adoptionConditions" ofType="com.zkt.entitys.AdoptionConditions">
+            <id property="acId" column="acId"></id>
+            <result property="conditions" column="conditions"></result>
+        </collection>
+        <collection property="userEntity" ofType="co.zkt.entity.UserEntity">
+            <id  property="id" column="id"></id>
+            <result property="username" column="username"></result>
+            <result property="img" column="img"></result>
+            <result property="phone" column="phone"></result>
+        </collection>
+    </resultMap>
+    <!--根据送养表id 查询宠物送养信息-->
+    <select id="getAdoption" parameterType="int" resultMap="adoptionMap1">
+			SELECT
+				adoption.adid,
+				petImages.imgId,
+				petImages.img,
+				kind.kindId,
+				kind.kindName,
+				adoption.`name`,
+				adoption.sex,
+				petAge.ageId,
+				petAge.age,
+				adoption.isEP,
+				adoption.isNeuter,
+				adoption.isVaccine,
+				adoption.`describe`,
+				adoption.city,
+				adoption.`detailed`,
+				adoptionConditions.acId,
+				adoptionConditions.conditions,
+				mb_user.id,
+				mb_user.username,
+				mb_user.img,
+				mb_user.phone
+			FROM
+				adoption
+				LEFT JOIN petImages ON adoption.adid = petImages.adoptionId
+				LEFT JOIN petAge ON adoption.petAgeId = petAge.ageId
+				LEFT JOIN relationship ON adoption.adid = relationship.adoptionId
+				LEFT JOIN adoptionConditions ON adoptionConditions.acId = relationship.acId
+				LEFT JOIN kind ON adoption.kindId = kind.kindId
+				LEFT JOIN mb_user ON adoption.userId = mb_user.id
+			WHERE
+				adoption.adid = #{adid}
+	</select>
+    <!--增加领养人信息-->
+    <insert id="insertAdopter" parameterType="com.zkt.entitys.Adopter">
+		INSERT INTO `pets`.`adopter` ( `terId`,`sex`,`age`,`status`,`experience`,`marriage`,`lodging`,`boong`,`income`,`occupation`,`site`,`phone`,`weChat`,`bonafide`,`userId` )
+			VALUES
+				(
+					NULL,
+					#{sex},
+					#{age},
+					#{status},
+					#{experience},
+					#{marriage},
+					#{lodging},
+					#{boong},
+					#{income},
+					#{occupation},
+					#{site},
+					#{phone},
+					#{weChat},
+					#{bonafide},
+					#{userId}
+				);
+	</insert>
+    <!--根据送养人微信号id查询该送养人送养的宠物列表-->
+    <select id="getAdoptionByWeChat" resultMap="adoptionMap" parameterType="int">
+		SELECT
+            petImages.imgId,
+            petImages.img,
+            adoption.adid,
+            adoption.`name`,
+            petAge.ageId,
+            petAge.age,
+            adoption.`describe`,
+            adoption.isVaccine,
+            adoption.isEP,
+            adoption.isNeuter,
+            mb_user.img,
+            mb_user.username
+        FROM
+            adoption
+            LEFT JOIN petImages ON adoption.imgId = petImages.adoptionId
+            LEFT JOIN petAge ON adoption.petAgeId = petAge.ageId
+            LEFT JOIN mb_user ON adoption.userId = mb_user.id
+        WHERE
+            mb_user.id = #{id}
+	</select>
+
+    <select id="getAdopterList" resultType="com.zkt.entitys.Adopter" parameterType="int">
+	      select * from adopter where  userId=#{userId}
+	</select>
+
+    <resultMap id="rMap" type="com.zkt.entitys.Relationship">
+        <result property="acId" column="acId"></result>
+        <collection property="adoption" ofType="com.zkt.entitys.Adoption">
+            <id property="adid" column="adid"></id>
+            <result property="name" column="name"/>
+            <result property="sex" column="sex"/>
+            <result property="isVaccine" column="isVaccine"/>
+            <result property="isEP" column="isEP"/>
+            <result property="isNeuter" column="isNeuter"/>
+            <result property="describe" column="describe"/>
+            <result property="city" column="city"/>
+            <result property="detailed" column="detailed"/>
+            <result property="userId" column="userId"/>
+            <collection property="petImages" ofType="com.zkt.entitys.PetImages">
+                <result property="img" column="img"></result>
+            </collection>
+            <collection property="petAge" ofType="com.zkt.entitys.PetAge">
+                <result property="age" column="age"></result>
+            </collection>
+            <collection property="userEntity" ofType="co.zkt.entity.UserEntity">
+                <result property="username" column="username"></result>
+                <result property="img" column="img"></result>
+                <result property="phone" column="phone"></result>
+            </collection>
+        </collection>
+        <collection property="as" ofType="com.zkt.entitys.AdoptionConditions">
+            <result property="conditions" column="conditions"></result>
+        </collection>
+    </resultMap>
+
+    <select id="getRelationship" resultMap="rMap" parameterType="int">
+        SELECT a.*,p.age,r.acId,pe.img,ad.conditions,u.username,u.img,u.phone
+FROM relationship r,adoption a,adoptionConditions ad,mb_user u,petAge p,petImages pe
+where r.adid=a.adid and r.acId=ad.acId and a.adid=pe.adid and a.petAgeId=p.ageId
+and u.id=a.userId and r.adid=#{adid}
+    </select>
+
+    <insert id="saveAdoption" parameterType="com.zkt.entitys.Adopter">
+        insert into adopter values (null ,#{sex},#{age},#{status},#{experience},#{marriage},#{lodging},#{income},#{de},#{userId})
+    </insert>
+</mapper>

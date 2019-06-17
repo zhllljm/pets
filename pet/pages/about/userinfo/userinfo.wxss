@@ -1,0 +1,5 @@
+/* pages/about/userinfo/userinfo.wxss */
+.im{
+  width: 100%;
+  height: 100%
+}

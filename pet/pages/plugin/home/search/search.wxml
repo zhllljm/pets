@@ -1,0 +1,16 @@
+<view class="cu-list grid col-{{gridCol2}}">
+    <view class="cu-item it" wx:for="{{itemList}}">
+    <navigator url='../detail/detail?wareid={{item.wareid}}'>
+      <view>
+        <image src='{{item.limg[0]}}' class='sp'></image>
+      </view>
+      <text>{{item.warename}}</text>
+      <view class='flex justify-between pi'>
+        <view style='font-size :20px' class='pi1'>￥{{item.proprice}}</view>
+        <view class='pi2'>
+          <text class="cuIcon-cart" style='color:orange'></text>
+        </view>
+      </view>
+      </navigator>
+    </view>
+</view>

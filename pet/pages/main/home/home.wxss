@@ -1,0 +1,13 @@
+/* pages/main/home/home.wxss */
+.fle{
+  display: flex;
+  justify-content: center
+}
+.fl{
+  height: 150px;
+  width: 70%;
+}
+.fr{
+  height: 150px;
+  width: 100%
+}

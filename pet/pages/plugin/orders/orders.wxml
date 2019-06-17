@@ -1,0 +1,56 @@
+<view class="main">
+    <view bindtap="showModal" data-target="Modal">
+        <view wx:if="{{hasAddress}}" class="orders-address">
+            <text class="orders-address-name">收货人: {{address.shname}}</text>
+            <text class="orders-address-phone">电话: {{address.temphone}}</text>
+            <view class="orders-address-detail">
+            <text class="oaddress">{{address.province}}</text>
+            <text class="oaddress">{{address.market}}</text>
+            <text class="oaddress">{{address.district}}</text>
+            <text class="oaddress">{{address.detaadder}}</text>
+            </view>
+        </view>
+        <view wx:else class="orders-no-address">添加收货地址</view>
+    </view>
+
+    <view class='orders-body' wx:for="{{orders}}" wx:key="index">
+      <view class='bo'>
+        <view class="flex  p-xs margin-bottom-sm mb-sm">
+        <view class="flex-twice radius bo1">
+          <image src='{{item.items[0].wareimgs[0].limg}}' class='im'></image>
+        </view>
+      <view class="flex-treble radius bo1">
+        <view style='font-size:14px;color:black'>{{item.items[0].warename}}</view>
+        <view style='font-size:12px;padding-top: 20px;color:gray'>{{item.items[0].warename}}</view>
+        <view style='font-size:16px;color:red;padding-top:5px'>￥{{item.items[0].proprice}}</view>
+      </view>
+      <view class="flex-sub bo2" style='font-size:18px;color:black'>x{{item.pronum}}</view>
+    </view>
+      </view>
+    </view>
+
+
+    <view class='oreder-lu'>
+      <view class='in'>
+        <input placeholder="给我们留言" bindinput="luBlur"></input>
+      </view>
+    </view>
+
+    <view class='order-zo'>
+      <view class='zo flex-wrp-row item'>
+      <view class='item-left flex-wrp-row'>
+      <text class="orders-address-name">付款合计:</text>
+      </view>
+      <view class='item-right flex-wrp-row'>
+      <text class="orders-address-phone">￥{{total}}</text>
+      </view>
+      </view>
+    </view>
+
+    <view class="flex flex-direction an">
+      <button class="cu-btn bg-pink margin-tb-sm lg" bindtap='ptpay'>普通支付</button>
+      <button class="cu-btn bg-olive lg" bindtap='wxpay'>微信支付</button>
+      <button class="cu-btn bg-orange margin-tb-sm lg" bindtap='yepay'>账户余额支付</button>
+    </view>
+
+</view>

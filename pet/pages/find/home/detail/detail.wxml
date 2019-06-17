@@ -1,0 +1,59 @@
+<view class='xc-top'>
+  <image src='{{shuju.fimg}}' class='xc-top-img'></image>
+</view>
+<view class="xq">
+    <view class='xq-top'>
+      {{shuju.fcity}}的
+      {{shuju.kindPojo.kindName}}{{shuju.fname}}正在找家
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-top-shi'>
+      更新：{{shuju.ftime}}
+    </view>
+</view>
+
+<view class="xq1">
+    <view class='xq-top'>
+      丨宠物描述
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-nei'>
+      {{shuju.fdesc}}
+    </view>
+</view>
+
+<view class="xq1">
+    <view class='xq-top'>
+      丨联系寻找人
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-xin'>
+      <view class="flex flex-wrap  xq-xin1">
+        <view class="basis-xs padding-sm radius">
+          <view class="cu-avatar xl round" style="background-image:url({{shuju.userEntity.img}});">
+          </view>
+        </view>
+        <view class='s'>
+          <view class='s-nei'>昵称:{{shuju.userEntity.username}} <text class="cuIcon-my lg text-red s-nei1"></text></view>
+          <view class='s-nei'>丢失地址:{{shuju.fcity}}{{shuju.faddress}}</view>
+          <view class='s-nei'>丢失时间:{{shuju.ftime}}</view>
+          <view class='s-nei'>手机号:{{shuju.userEntity.phone}}<text class="cuIcon-sound lg text-red s-nei1"></text></view>
+        </view>
+      </view>
+      
+    </view>
+</view>
+
+<view class='xq2'>
+  <view class='xq-top'>
+      丨 提醒
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-nei2'>
+      如对方向你索要运费，治疗费等，切勿付款！请务必联系审核员lmh2019核实，以免被骗
+    </view>
+</view>

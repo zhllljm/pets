@@ -1,0 +1,40 @@
+<!--pages/about/address/address.wxml-->
+<view class="cu-list menu card-menu margin-top">
+  <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../address/add/add?uid={{uid}}">
+        <text class="cuIcon-location"></text>
+        <text class="text-grey text-orange">添加收货地址</text>
+      </navigator>
+    </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top">
+  <view class="cu-item" wx:for="{{testList}}" wx:key>
+      <navigator class="content" hover-class="none" url="../address/update/update?uid={{item.uid}}&adderid={{item.adderid}}">
+        <view class="flex justify-star">
+          <view class="cuIcon-edit b"></view>
+          <view class="flex-treble a">
+            <view class="flex flex-wrap a1">
+              <view class="basis-xs">{{item.shname}}</view>
+              <view class="basis-sm">{{item.temphone}}</view>
+               <view class="basis-xs">{{item.mr}}</view>
+            </view>
+            <view class="flex justify-start a2">
+      <view class="a3">{{item.province}}</view>
+      <view class="a3">{{item.market}}</view>
+      <view class="a3">{{item.district}}</view>
+      <view class="a3">{{item.detaadder}}</view>
+    </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+</view>
+
+
+
+
+
+
+
+

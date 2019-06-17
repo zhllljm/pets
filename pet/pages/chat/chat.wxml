@@ -1,0 +1,34 @@
+<view class='chatname'>{{username}}</view>
+
+<view class="cu-chat">
+<block wx:for="{{shuju}}" wx:key>
+  <view class="cu-item self" wx:if="{{item.id==id}}">
+    <view class="main">
+      <view class="content bg-green shadow">
+        <text>{{item.mes}}</text>
+      </view>
+    </view>
+    <view class="cu-avatar radius" style="background-image:url({{item.img}});"></view>
+  </view>
+  <view class="cu-item" wx:if="{{item.id!=id}}">
+    <view class="cu-avatar radius" style="background-image:url({{item.img}});"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>{{item.mes}}</text>
+      </view>
+    </view>
+  </view>
+</block>
+</view>
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+  <view class="action">
+    <text class="cuIcon-sound text-grey"></text>
+  </view>
+  <input class="solid-bottom" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10" value='{{msg}}' bindinput='megInput'></input>
+  <view class="action">
+    <text class="cuIcon-emojifill text-grey"></text>
+  </view>
+  <button class="cu-btn bg-green shadow" catchtap='sendEvent' >发送</button>
+</view>
+
+

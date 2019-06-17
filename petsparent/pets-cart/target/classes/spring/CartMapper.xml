@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zkt.dao.CartMapper">
+
+    <!--用户表一对多购物车表一对多关联商品表-->
+    <resultMap type="com.zkt.entitys.Cart" id="mb_userMap">
+        <id property="cartId" column="cartId"></id>
+        <result property="pronum" column="pronum"/>
+        <result property="userId" column="userId"/>
+            <collection property="items" ofType="com.zkt.entitys.Items">
+                <id property="wareid" column="wareid"></id>
+                <result property="proprice" column="proprice"></result>
+                <result property="warename" column="warename"></result>
+                <collection property="wareimgs" ofType="com.zkt.entitys.Wareimg">
+                <id property="lid" column="lid"></id>
+                <result property="limg" column="limg"></result>
+                <result property="wareid" column="wareid"></result>
+                </collection>
+            </collection>
+    </resultMap>
+    <!--查询当前用户所有购物车信息-->
+    <select id="getCartList" resultMap="mb_userMap">
+              		select
+                     c.cartid,
+                     c.pronum,
+                     c.userId,
+                     c.wareid,
+                     items.proprice,
+                     items.warename,
+                     wareimg.limg
+                 from cart c
+                    LEFT JOIN items on
+                       c.wareid = items.wareid
+                    LEFT JOIN wareimg on
+                        wareimg.wareid = items.wareid
+                    where c.userId=#{userId}
+    </select>
+
+</mapper>

@@ -1,0 +1,19 @@
+<view class='cm' wx:for="{{shuju}}" wx:key data-id='{{item.adid}}' bindtap='fbtn'>
+  <view class='cm-body flex'>
+    <view class="basis-sm radius cmb1">
+      <image src='{{item.petImages[0].img}}' class='cm-img'></image>
+    </view>
+    <view class="basis-lg  radius cmb2">
+      <view class='cm-n1'>
+      <image src='../../images/tabbar/yu.png' class='cm-n1-img'></image>
+      {{item.name}},{{item.petAge.age}}
+      </view>
+      <view class='cm-n2'>{{item.describe}}</view>
+        <view class='cm-n3'>
+          <text class='cm-n4'>{{item.isNeuter}}</text>
+          <text class='cm-n5'>{{item.isEP}}</text>
+          <text class='cm-n6'>{{item.isVaccine}}</text>
+        </view>
+    </view>
+  </view>
+</view>

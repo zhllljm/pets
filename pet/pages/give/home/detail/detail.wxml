@@ -1,0 +1,132 @@
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.img}}" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+<view class="xq">
+    <view class='xq-top'>
+      广州市的猫猫小蛋挞正在找家
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-sj'>
+      <view class="flex flex-wrap">
+      <view class="basis-xs margin-xs padding-sm radius">
+      <image src='../../../images/tabbar/xi1.png' class='sq-img'></image>
+      <text class='sq-n'>{{shuju.name}}</text>
+      </view>
+      <view class="basis-xs margin-xs padding-sm radius">
+      <image src='../../../images/tabbar/xi6.png' class='sq-img'></image>
+      <text class='sq-n'>公</text>
+      </view>
+      <view class="basis-xs margin-xs padding-sm radius">
+      <image src='../../../images/tabbar/xi5.png' class='sq-img'></image>
+      <text class='sq-n'>{{shuju.petAge.age}}</text>
+      </view>
+      <view class="basis-xs margin-xs padding-sm radius">
+      <image src='../../../images/tabbar/xi3.png' class='sq-img'></image>
+      <text class='sq-n'>{{shuju.isEP}}</text>
+      </view>
+      <view class="basis-xs margin-xs padding-sm radius">
+      <image src='../../../images/tabbar/xi4.png' class='sq-img'></image>
+      <text class='sq-n'>{{shuju.isNeuter}}</text>
+      </view>
+      <view class="basis-xs  margin-xs padding-sm radius">
+      <image src='../../../images/tabbar/xi2.png' class='sq-img'></image>
+      <text class='sq-n'>{{shuju.isVaccine}}</text>
+      </view>
+    </view>
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-top'>
+      丨 TA的故事
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-nei'>
+      {{shuju.describe}}
+    </view>
+</view>
+
+<view class="xq1">
+    <view class='xq-top'>
+      丨 领养条件
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-nei1'>
+      <block wx:for="{{as}}" wx:key>
+        <view class='xq-nei2'>丶{{item.as[0].conditions}}</view>
+        </block>
+    </view>
+</view>
+
+  <view class='xq1'>
+  <view class='xq-top'>
+      丨 提醒
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-nei1'>
+      如对方向你索要运费，治疗费等，切勿付款！请务必联系审核员lmh2019核实，以免被骗
+    </view>
+</view>
+
+  <view class='xq1'>
+  <view class='xq-top'>
+      丨 领养流程
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-nei3'>
+      <image src='../../../images/bu.png' class='xq-nei1-i'></image>
+    </view>
+</view>
+
+<view class="xq1">
+    <view class='xq-top'>
+      丨 联系送养人
+    </view>
+</view>
+<view class="xq">
+    <view class='xq-xin'>
+      <view class="flex flex-wrap">
+      <view class="basis-xs padding-sm radius">
+      <view class="cu-avatar xl round" style="background-image:url({{u.img}});"></view>
+      </view>
+      <view class="s radius">
+        <view class="cu-list menu">
+  <view class="cu-item arrow">
+      <view class="content">
+        <image class="png" mode="aspectFit"></image>
+        <text class="text-grey">{{u.username}}</text>
+      </view>
+    </view>
+</view>
+        <view class=' xibtn'>
+          <button class='xibtn1' bindtap='sibtn'>私信</button>
+          <button class='xibtn1'>复制微信号</button>
+          <button class='xibtn1'>拨打电话</button>
+        </view>
+      </view>
+      </view>
+      
+    </view>
+</view>
+
+
+<view class="cu-bar bg-white tabbar shop xq-foot">
+    <view class="action">
+      <view class="cuIcon-shop">
+      </view> 返回主页
+    </view>
+    <view class="action">
+      <view class="cuIcon-like">
+      </view>
+      关注
+    </view>
+    <view class="btn-group">
+      <button class="cu-btn bg-orange round shadow-blur xq-bu" bindtap="shenbtn">申请领养</button>
+    </view>
+  </view>

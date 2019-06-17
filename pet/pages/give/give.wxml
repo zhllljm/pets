@@ -1,0 +1,110 @@
+<!-- 选择图片 -->
+<view class='addpic'>
+  <view class='add-pic' bindtap='addPic1' wx:if="{{imgbox.length<9}}">
+    <image class='im' src='../../pages/images/tabbar/add.png'></image>
+    <view style='display: flex;justify-content: center;'>添加图片</view>
+  </view>
+</view>
+<view class='up-pic'>
+  <view class='flex pic-box'>
+    <block wx:key="imgbox" wx:for="{{imgbox}}">
+      <view class='ap-box'>
+          <view class='add-pic'>
+              <image class='add-pic' src='{{item}}'></image>
+              <view class='img-de' data-deindex='{{index}}' bindtap='imgDelete1'>
+              <text class="cuIcon-roundclosefill lg text-red"></text>
+          </view>
+      </view>
+      </view>
+      </block>
+    </view>
+</view>
+<view class='wen cuIcon-warn'>注意：宠物图片最多只能上传3张（默认显示封面为第一张图片）</view>
+<form>
+  	<view class="cu-form-group margin-top">
+		<view class="title">昵称</view>
+		<input placeholder="宠物昵称（限5个字内）" bindinput='niin'></input>
+	</view>
+  <radio-group class="block" bindchange="zongchange">
+		<view class="cu-form-group" >
+			<view class="title">种类</view>
+			<view>
+        <block wx:key="zhong" wx:for="{{zhong}}">
+				  {{item.name}}：<radio value='{{item.id}}'></radio>
+        </block>
+			</view>
+		</view>
+	</radio-group>
+  <view class="cu-form-group">
+		<view class="title">年龄选择</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+    	<view class="picker">
+				{{index?picker[index]:'请点击选择'}}
+			</view>
+		</picker>
+	</view>
+  <radio-group class="block" bindchange="sexchange">
+		<view class="cu-form-group" >
+			<view class="title">性别</view>
+			<view>
+        男：<radio value='0'></radio>
+        女：<radio value='1'></radio>
+			</view>
+		</view>
+	</radio-group>
+  <radio-group class="block" bindchange="yichange">
+		<view class="cu-form-group" >
+			<view class="title">是否注射疫苗</view>
+			<view>
+        是：<radio value='已注射'></radio>
+        否：<radio value='未注射'></radio>
+			</view>
+		</view>
+	</radio-group>
+  <radio-group class="block" bindchange="yuchange">
+		<view class="cu-form-group" >
+			<view class="title">是否绝育</view>
+			<view>
+        是：<radio value='已绝育'></radio>
+        否：<radio value='未绝育'></radio>
+			</view>
+		</view>
+	</radio-group>
+  <radio-group class="block" bindchange="quchange">
+		<view class="cu-form-group" >
+			<view class="title">是否驱虫</view>
+			<view>
+        是：<radio value='已驱虫'></radio>
+        否：<radio value='未驱虫'></radio>
+			</view>
+		</view>
+	</radio-group>
+  <view class="cu-form-group align-start">
+		<view class="title">TA的故事</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请诉说TA的故事"></textarea>
+	</view>
+  <view class="cu-form-group">
+    <view>领养条件</view>
+  </view>
+  <view>
+    <view class='tj'>
+      <checkbox-group bindchange="tj">
+        <view class='checkbox' wx:for='{{tij}}'>
+          <checkbox value='{{item.id}}' class='zhi'></checkbox>{{item.name}}
+        </view>
+      </checkbox-group>
+    </view>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">所在城市</view>
+		<input placeholder="城市" bindinput='cityin'></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">详细地址</view>
+		<input placeholder="详细地址" bindinput='dein'></input>
+	</view>
+</form>
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-red margin-tb-sm lg" bindtap='gbtn'>发布送养</button>
+  <button class="cu-btn bg-red margin-tb-sm lg" bindtap='abtn'>测试</button>
+</view>

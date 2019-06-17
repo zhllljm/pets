@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zkt.dao.OrderMapper">
+
+    <!--功能描述: 增加送养宠物信息-->
+    <insert id="insertOrder" parameterType="com.zkt.entitys.Orders">
+        INSERT INTO orders VALUES(null,#{orderNo},#{userId},#{payment},#{status},now());
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <insert id="insertOrderdetail" parameterType="com.zkt.entitys.Orderdetail">
+        INSERT INTO orderdetail VALUES(null,#{itemId},#{orderId},#{num},#{itemName},#{price});
+    </insert>
+
+    <resultMap id="ordersMap" type="com.zkt.entitys.Orders">
+        <id property="id" column="id"></id>
+        <result property="orderNo" column="orderNo"/>
+        <result property="userId" column="userId"/>
+        <result property="payment" column="payment"/>
+        <result property="waredetailed" column="waredetailed"/>
+        <result property="status" column="status"/>
+        <result property="createtime" column="createtime"/>
+        <collection property="ord" ofType="com.zkt.entitys.Orderdetail">
+            <id property="id" column="id"></id>
+            <result property="itemId" column="itemId"/>
+            <result property="num" column="num"/>
+            <result property="itemName" column="itemName"/>
+            <result property="price" column="price"/>
+            <collection property="items" ofType="com.zkt.entitys.Items">
+                <collection property="wareimgs" ofType="com.zkt.entitys.Wareimg">
+                    <result property="limg" column="limg"/>
+                </collection>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="lookOrders" resultMap="ordersMap" parameterType="int">
+        select o.*,od.*,i.limg from orders o ,orderdetail od ,items t,wareimg i where o.id=od.orderId and od.itemId=t.wareid
+        and t.wareid=i.wareid and o.userId=#{userId}
+    </select>
+
+    <select id="lookOrdersbystatic" resultMap="ordersMap" parameterType="com.zkt.entitys.Orders">
+        select o.*,od.*,i.limg from orders o ,orderdetail od ,items t,wareimg i where o.id=od.orderId and od.itemId=t.wareid
+        and t.wareid=i.wareid and o.userId=#{userId} and o.status=#{status}
+    </select>
+
+    <delete id="delCart" parameterType="int">
+        delete from cart where userId=#{userId}
+    </delete>
+
+
+</mapper>

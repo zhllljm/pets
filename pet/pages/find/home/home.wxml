@@ -1,0 +1,41 @@
+<view class="flex  p-xs  mb-sm v">
+      <view class="flex-sub padding-sm margin-xs radius">
+      <button class="cu-btn round bg-orange" bindtap='citybtn'>{{city}}</button>
+      </view>
+      <view class="flex-treble padding-sm margin-xs radius">
+        <view>
+          <view class='cbg'>
+            <view wx:for="{{parameter}}" wx:key class="cd">
+              <text data-id='{{item.id}}' bindtap='parameterTap' class='{{item.checked?"checked_parameter":""}}'>{{item.name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+</view>
+
+<view class='cm' wx:for="{{shuju}}" wx:key data-id='{{item.fid}}' bindtap='fbtn'>
+  <view class='cm-body flex'>
+    <view class="bxs radius cmb1">
+      <image src='{{item.fimg}}' class='cm-img'></image>
+    </view>
+    <view class="basis-lg  radius cmb2">
+      <view class='cm-n1'>
+      <image src='../../images/tabbar/tou.png' class='cm-n1-img'></image>
+      <text class='cm-n1-nei'>{{item.fcity}}的{{item.kindPojo.kindName}}{{item.fname}}丢失请帮忙</text>
+      </view>
+        <view class='cm-n3'>
+            <view class="flex">
+              <view class="flex-sub  paddings margin-xs radius">
+                <image src='../../images/tabbar/shi1.png' class='cm-n3-img'></image>
+                <text class='cm-n3-nei'>地区:{{item.fcity}}</text>
+              </view>
+              <view class="flex-sub paddings margin-xs radius">
+               <image src='../../images/tabbar/shi.png' class='cm-n3-img'></image>
+                <text class='cm-n3-nei1'>{{item.ftime}}</text>
+              </view>
+
+            </view>
+        </view>
+    </view>
+  </view>
+</view>

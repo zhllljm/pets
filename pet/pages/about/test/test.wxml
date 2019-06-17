@@ -1,0 +1,7 @@
+handleZanTabChange(e) {
+    var componentId = e.componentId;
+    var selectedId = e.selectedId;
+    this.setData({
+      `${componentId}.selectedId`: selectedId
+    });
+  }

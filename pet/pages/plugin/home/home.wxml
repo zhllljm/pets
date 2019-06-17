@@ -1,0 +1,65 @@
+
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item" bindtap="swiperclick" data-id='{{item.id}}'>
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </view>
+  </swiper-item>
+</swiper>
+
+<view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索商品" confirm-type="search" bindinput='searchput'></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round" bindtap='searchbtn'>搜索</button>
+    </view>
+  </view>
+
+   <view class="cu-list grid col-{{gridCol}} j">
+    <view class="cu-item" wx:for="{{itemss}}" wx:key wx:if="{{index<gridCol*2}}">
+      <navigator url="../home/sale/sale?id={{item.id}}">
+          <view>
+            <image src='{{item.img}}' class='sp'></image>
+          </view>
+          <text>{{item.name}}</text>
+      </navigator>
+    </view>
+  </view>
+
+  <view class='shan' wx:for="{{itemss}}" wx:key >
+  <view class='sale bg-white'>
+    <view class='biao'>
+        <text class="cuIcon-like text-orange bi"></text>
+        <text class="text-grey min">{{item.name}}</text>
+    </view>
+    <view style='padding-top:5px' >
+        <text class="text-grey biao1" style='font-size:12px;'>一份付出，一份希望</text>
+        <navigator url="../plugin/home/sale/sale?id={{item.id}}">
+        <text class='ga'>更多></text>
+        </navigator>
+    </view>
+  </view>
+  <view class="cu-list grid col-{{gridCol2}}" bindtap='itembtn'>
+    <view class="cu-item" wx:for="{{item.items}}" wx:key wx:if="{{index<gridCol2*1}}">
+      <view>
+        <image src='{{item.wareimgs[0].limg}}' class='sp'></image>
+      </view>
+      <text>{{item.warename}}</text>
+      <view class='flex justify-between pi'>
+        <view style='font-size :20px' class='pi1'>￥{{item.proprice}}</view>
+        <view class='pi2'>
+          <text class="cuIcon-cart" style='color:orange'></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view bindtap='shopcar'>
+  <image class='car_icon' src='../../images/tabbar/shopcar.png'></image>
+</view>
+
+

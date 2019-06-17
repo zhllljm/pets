@@ -1,0 +1,92 @@
+<view class='u'>
+  <view class='tou'>
+    <view class='tou1 cu-avatar round' >
+      <image src='{{Userentity.img}}' class='ima'></image>
+    </view>
+    <view class='mi'>
+      <text >{{Userentity.username}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top">
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../logs/logs?id={{i}}">
+        <text class="cuIcon-file text-orange"></text>
+        <text class="text-grey">我的助养</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../logs/logs">
+        <text class="cuIcon-favor text-orange"></text>
+        <text class="text-grey">我的关注</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../order/order?id={{Userentity.id}}">
+        <text class="cuIcon-edit text-orange"></text>
+        <text class="text-grey">我的订单</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../../chat/chat?id={{Userentity.id}}">
+        <text class="cuIcon-file text-orange"></text>
+        <text class="text-grey">我的消息</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../address/address?uid={{Userentity.id}}">
+        <text class="cuIcon-location text-orange"></text>
+        <text class="text-grey">我的收货地址</text>
+      </navigator>
+    </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top">
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../give/give?id={{Userentity.id}}">
+        <text class="cuIcon-footprint text-orange"></text>
+        <text class="text-grey">我发布的送养</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../find/find?id={{Userentity.id}}">
+        <text class="cuIcon-search text-orange"></text>
+        <text class="text-grey">我发布的寻宠</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../list/list">
+        <text class="cuIcon-like text-orange"></text>
+        <text class="text-grey">我发布的助养</text>
+      </navigator>
+    </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top">
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../userinfo/userinfo">
+        <text class="cuIcon-profile text-orange"></text>
+        <text class="text-grey">个人资料</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../userinfo/userinfo">
+        <text class="cuIcon-circle text-orange"></text>
+        <text class="text-grey">基地管理</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="../list/list">
+        <text class="cuIcon-news text-orange"></text>
+        <text class="text-grey">领养协议</text>
+      </navigator>
+    </view>
+</view>
+
+<view class='toufoot'>
+      <text style='font-size:12px;'>
+      客服微信:dashuaibi520 \n
+      工作时间： 周一至周五9:00-18:00
+      </text> 
+</view>

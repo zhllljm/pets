@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-address" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-address" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-cart" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-chat" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-content" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-find" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-give" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-order/src/main/java/com/zkt/entitys/Orders.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-api/pets-api.search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-cart" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-chat" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-content" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-content-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-find" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-give" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-messages" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pets-search" charset="UTF-8" />
+  </component>
+</project>

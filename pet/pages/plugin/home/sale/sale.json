@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF8C69",
+    "navigationBarTitleText": "义卖商品",
+    "navigationBarTextStyle": "black"
+  }
+}

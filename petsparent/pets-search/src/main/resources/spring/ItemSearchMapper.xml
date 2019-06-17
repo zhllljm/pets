@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zkt.dao.ItemSearchMapper">
+    <select id="getAllList" resultType="com.zkt.entity.SearchItem">
+    select
+    a.wareid,
+    a.warename,
+    a.waredetailed,
+    b.name name
+   from
+    items a,
+    itemcat b
+    WHERE a.cid = b.id
+    AND a.warestatus = 1
+    </select>
+<!-- <select id="getItemById" parameterType="long" resultType="com.zhl.pojo.SearchItem">
+   select
+      a.id,
+      a.title,
+      a.sell_point,
+      a.price,
+      a.image,
+      b.name category_name
+       from pes_item_solr a
+       left join pes_item_cat b on a.cid = b.id
+       where a.status = 1
+       and a.id=#{itemId}
+ </select>-->
+</mapper>

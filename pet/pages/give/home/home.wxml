@@ -1,0 +1,33 @@
+<view class="flex  p-xs  mb-sm v">
+      <view class="flex-sub padding-sm margin-xs radius">
+      <button class="cu-btn round bg-orange" bindtap='citybtn'>{{city}}</button>
+      </view>
+      <view class="flex-treble padding-sm margin-xs radius">
+        <view>
+          <view class='cbg'>
+            <view wx:for="{{parameter}}" wx:key class="cd">
+              <text data-id='{{item.id}}' bindtap='parameterTap' class='{{item.checked?"checked_parameter":""}}'>{{item.name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+</view>
+<view class='cm' wx:for="{{shuju}}" wx:key data-id='{{item.adid}}' bindtap='fbtn'>
+  <view class='cm-body flex'>
+    <view class="basis-sm radius cmb1">
+      <image src='{{item.petImages[0].img}}' class='cm-img'></image>
+    </view>
+    <view class="basis-lg  radius cmb2">
+      <view class='cm-n1'>
+      <image src='../../images/tabbar/yu.png' class='cm-n1-img'></image>
+      {{item.name}},{{item.petAge.age}}
+      </view>
+      <view class='cm-n2'>{{item.describe}}</view>
+        <view class='cm-n3'>
+          <text class='cm-n4'>{{item.isNeuter}}</text>
+          <text class='cm-n5'>{{item.isEP}}</text>
+          <text class='cm-n6'>{{item.isVaccine}}</text>
+        </view>
+    </view>
+  </view>
+</view>

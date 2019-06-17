@@ -1,0 +1,115 @@
+.screen-swiper {
+    min-height:555rpx;
+}
+/*-------左上角按钮-------*/
+.canui-head-box{
+    position:absolute;
+    top:27px;
+    margin-left:10px;
+    background:rgba(0,0,0,0.2);
+    color:#fff;
+    border-radius:20px;
+    padding:4px 4px;
+    border:1px solid rgba(255,255,255,0.3);
+}
+.canui-head-box text{
+    padding:8px;
+    font-size:20px;
+}
+.canui-head-box text + text{
+    border-left:1px solid rgba(255,255,255,0.3);
+    margin:0 3px;
+    padding:0 5px;
+    padding-left:15px;
+}
+
+.canui-goods-box{
+    padding:10rpx 30rpx;
+}
+
+.canui-xzwz{
+    -webkit-line-clamp:2;
+}
+.cauni-details-box{
+    word-wrap:break-word;
+}
+.cu-bar.tabbar.shop .action {
+    width:100rpx;
+}
+.cu-bar.tabbar .action {
+    font-size:20rpx;
+}
+.cu-bar.tabbar .action [class*="icon"] {
+    width:38rpx;
+}
+.a{
+  position:fixed;
+  bottom: 0px;
+  width: 100%;
+}
+.n{
+  margin-top: 15px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.n1{
+  margin-left: 20px
+}
+.v{
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.item{
+  width: 100%;
+  height: 250px;
+  background: blue
+}
+
+.itemimg{
+  height: 110px;
+  width: 120px
+}
+
+.co1{
+  margin-top: 10px;
+  font-size: 20px;
+  color: red
+}
+.co2{
+  font-size: 18px;
+  margin-top: 10px;
+}
+.lei{
+  height: 70px;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray
+}
+
+.lei1{
+  margin-top: 10px
+}
+
+.cart-count-down{
+  font-size: 20px;
+  padding-right: 10px;
+  height: 20px;
+  width: 20px
+}
+
+.cart-count-add{
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.cart-count-num{
+  font-size: 18px
+}
+
+.buynum{
+  margin-top: 15px;
+}

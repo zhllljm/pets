@@ -1,0 +1,365 @@
+/* pages/plugin/home/home.wxss */
+.j{
+  margin-top: 10px
+}
+.sp{
+  height: 50px;
+  width: 50px;
+}
+.sale{
+  margin-top: 10px;
+  height: 74px
+  
+}
+.biao{
+  margin: 0 auto;  
+  display: flex;
+  justify-content: center;
+  padding: 4px
+}
+
+.bi{
+  padding-top: 5px
+}
+
+.min{
+  font-size: 18px;
+  color: orange;
+  padding-left: 5px
+  
+}
+.biao1{
+  display: flex;
+  justify-content: center;
+}
+.ga{
+   float: right;
+}
+
+.pi{
+  margin-top: 10px;
+}
+
+.pi1{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.pi2{
+  margin-right: 10px
+}
+
+
+/* ==================
+          列表
+ ==================== */
+.grayscale {
+	filter: grayscale(1);
+}
+
+.cu-list+.cu-list {
+	margin-top: 30rpx
+}
+
+.shan>.cu-list>.cu-item {
+	transition: all .6s ease-in-out 0s;
+	transform: translateX(0rpx)
+}
+
+.shan>.cu-list>.cu-item.move-cur {
+	transform: translateX(-260rpx)
+}
+
+.shan>.cu-list>.cu-item .move {
+	position: absolute;
+	right: 0;
+	display: flex;
+	width: 260rpx;
+	height: 100%;
+	transform: translateX(100%)
+}
+
+.shan>.cu-list>.cu-item .move view {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center
+}
+
+.shan>.cu-list.menu-avatar {
+	overflow: hidden;
+}
+
+.shan>.cu-list.menu-avatar>.cu-item {
+	position: relative;
+	display: flex;
+	padding-right: 10rpx;
+	height: 140rpx;
+	background-color: var(--white);
+	justify-content: flex-end;
+	align-items: center
+}
+
+.shan>.cu-list.menu-avatar>.cu-item>.cu-avatar {
+	position: absolute;
+	left: 30rpx
+}
+
+.shan>.cu-list.menu-avatar>.cu-item .flex .text-cut {
+	max-width: 510rpx
+}
+
+.shan>.cu-list.menu-avatar>.cu-item .content {
+	position: absolute;
+	left: 146rpx;
+	width: calc(100% - 96rpx - 60rpx - 120rpx - 20rpx);
+	line-height: 1.6em;
+}
+
+.shan>.cu-list.menu-avatar>.cu-item .content.flex-sub {
+	width: calc(100% - 96rpx - 60rpx - 20rpx);
+}
+
+.shan>.cu-list.menu-avatar>.cu-item .content>view:first-child {
+	font-size: 30rpx;
+	display: flex;
+	align-items: center
+}
+
+.shan>.cu-list.menu-avatar>.cu-item .content .cu-tag.sm {
+	display: inline-block;
+	margin-left: 10rpx;
+	height: 28rpx;
+	font-size: 16rpx;
+	line-height: 32rpx
+}
+
+.shan>.cu-list.menu-avatar>.cu-item .action {
+	width: 100rpx;
+	text-align: center
+}
+
+.shan>.cu-list.menu-avatar>.cu-item .action view+view {
+	margin-top: 10rpx
+}
+
+.shan>.cu-list.menu-avatar.comment>.cu-item .content {
+	position: relative;
+	left: 0;
+	width: auto;
+	flex: 1;
+}
+
+.shan>.cu-list.menu-avatar.comment>.cu-item {
+	padding: 30rpx 30rpx 30rpx 120rpx;
+	height: auto
+}
+
+.shan>.cu-list.menu-avatar.comment .cu-avatar {
+	align-self: flex-start
+}
+
+.shan>.cu-list.menu>.cu-item {
+	position: relative;
+	display: flex;
+	padding: 0 30rpx;
+	min-height: 100rpx;
+	background-color: var(--white);
+	justify-content: space-between;
+	align-items: center
+}
+
+.shan>.cu-list.menu>.cu-item:last-child:after {
+	border: none
+}
+
+.shan>.cu-list.menu>.cu-item:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	width: 200%;
+	height: 200%;
+	border-bottom: 1rpx solid #ddd;
+	border-radius: inherit;
+	content: " ";
+	transform: scale(.5);
+	transform-origin: 0 0;
+	pointer-events: none
+}
+
+.shan>.cu-list.menu>.cu-item.grayscale {
+	background-color: #f5f5f5
+}
+
+.shan>.cu-list.menu>.cu-item.cur {
+	background-color: #fcf7e9
+}
+
+.shan>.cu-list.menu>.cu-item.arrow {
+	padding-right: 90rpx
+}
+
+.shan>.cu-list.menu>.cu-item.arrow:before {
+	position: absolute;
+	top: 0;
+	right: 30rpx;
+	bottom: 0;
+	display: block;
+	margin: auto;
+	width: 30rpx;
+	height: 30rpx;
+	color: var(--grey);
+	content: "\e6a3";
+	text-align: center;
+	font-size: 34rpx;
+	font-family: "cuIcon";
+	line-height: 30rpx
+}
+
+.shan>.cu-list.menu>.cu-item button.content {
+	padding: 0;
+	background-color: transparent;
+	justify-content: flex-start
+}
+
+.shan>.cu-list.menu>.cu-item button.content:after {
+	display: none
+}
+
+.shan>.cu-list.menu>.cu-item .cu-avatar-group .cu-avatar {
+	border-color: var(--white)
+}
+
+.shan>.cu-list.menu>.cu-item .content>view:first-child {
+	display: flex;
+	align-items: center
+}
+
+.shan>.cu-list.menu>.cu-item .content>text[class*=cuIcon] {
+	display: inline-block;
+	margin-right: 10rpx;
+	width: 1.6em;
+	text-align: center
+}
+
+.shan>.cu-list.menu>.cu-item .content>image {
+	display: inline-block;
+	margin-right: 10rpx;
+	width: 1.6em;
+	height: 1.6em;
+	vertical-align: middle
+}
+
+.shan>.cu-list.menu>.cu-item .content {
+	font-size: 30rpx;
+	line-height: 1.6em;
+	flex: 1
+}
+
+.shan>.cu-list.menu>.cu-item .content .cu-tag.sm {
+	display: inline-block;
+	margin-left: 10rpx;
+	height: 28rpx;
+	font-size: 16rpx;
+	line-height: 32rpx
+}
+
+.shan>.cu-list.menu>.cu-item .action .cu-tag:empty {
+	right: 10rpx
+}
+
+.shan>.cu-list.menu {
+	display: block;
+	overflow: hidden
+}
+
+.shan>.cu-list.menu.sm-border>.cu-item:after {
+	left: 30rpx;
+	width: calc(200% - 120rpx)
+}
+
+.shan>.cu-list.grid>.cu-item {
+	position: relative;
+	display: flex;
+	padding: 20rpx 0 30rpx;
+	transition-duration: 0s;
+	flex-direction: column
+}
+
+.shan>.cu-list.grid>.cu-item:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	width: 200%;
+	height: 200%;
+	border-right: 1px solid rgba(0, 0, 0, .1);
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	border-radius: inherit;
+	content: " ";
+	transform: scale(.5);
+	transform-origin: 0 0;
+	pointer-events: none
+}
+
+.shan>.cu-list.grid>.cu-item text {
+	display: block;
+	margin-top: 10rpx;
+	color: #888;
+	font-size: 26rpx;
+	line-height: 40rpx
+}
+
+.shan>.cu-list.grid>.cu-item [class*=cuIcon] {
+	position: relative;
+	display: block;
+	margin-top: 20rpx;
+	width: 100%;
+	font-size: 48rpx
+}
+
+.shan>.cu-list.grid>.cu-item .cu-tag {
+	right: auto;
+	left: 50%;
+	margin-left: 20rpx
+}
+
+.shan>.cu-list.grid {
+	background-color: var(--white);
+	text-align: center
+}
+
+.shan>.cu-list.grid.no-border>.cu-item {
+	padding-top: 10rpx;
+	padding-bottom: 20rpx
+}
+
+.shan>.cu-list.grid.no-border>.cu-item:after {
+	border: none
+}
+
+.shan>.cu-list.grid.no-border {
+	padding: 20rpx 10rpx
+}
+
+.shan>.cu-list.grid.col-3>.cu-item:nth-child(3n):after,
+.shan>.cu-list.grid.col-4>.cu-item:nth-child(4n):after,
+.shan>.cu-list.grid.col-5>.cu-item:nth-child(5n):after {
+	border-right-width: 0
+}
+
+.shan>.cu-list.card-menu {
+	overflow: hidden;
+	margin-right: 30rpx;
+	margin-left: 30rpx;
+	border-radius: 20rpx
+}
+
+.car_icon{
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  bottom: 30px;
+  right: 20px;
+}

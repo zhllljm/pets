@@ -1,0 +1,68 @@
+.flex{  
+  display: flex;  
+}  
+.up-pic{  
+  /* padding:20rpx 24rpx; */  
+  width: 100%;  
+  justify-content: center; 
+}  
+.pic-box{
+  flex-flow:wrap;  
+  width:100%;
+  background: white
+}  
+.ap-box{  
+   position: relative;
+   padding-left: 10px;
+}  
+.add-pic{  
+  width: 160rpx;  
+  height: 160rpx; 
+  margin-right: 20rpx;  
+  position: relative;  
+  margin: 20rpx 30rpx 20rpx 30rpx;
+}  
+/* 删除图片 */  
+.img-de{  
+  width:45rpx;  
+  height:45rpx;  
+  border-radius:50%;  
+  position:absolute;  
+  right:-41rpx;  
+  top:5rpx;  
+}  
+.hong-contant .teamwork-btn{  
+  width: 360rpx;  
+  height: 88rpx;  
+  border-radius: 50rpx;  
+  color: white;  
+  background-color:#14a1fd;  
+  margin: 0 auto;  
+  margin-top: 80rpx;  
+  margin-bottom: 40rpx;  
+}
+.im{
+  width: 110px;
+  height: 90px;
+}
+.addpic{
+  background: white;
+  height: 130px;
+  display: flex;
+  justify-content: center
+}
+.wen{
+  color: orange;
+  font-size: 14px;
+  background: white;
+  padding-top: 10px
+  }
+  .tj{
+    background: white;
+    padding-left: 20px;
+    padding-bottom: 20px;
+  }
+  .zhi{
+    width: 10%;
+    height: 20%
+  }

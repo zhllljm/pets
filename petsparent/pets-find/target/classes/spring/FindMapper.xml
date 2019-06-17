@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zkt.dao.FindMapper">
+
+    <!--显示所有寻宠信息-->
+    <select id="getListPets" resultType="com.zkt.entitys.FindPojo" parameterType="string">
+      SELECT * from finds where fcity=#{fcity}
+    </select>
+
+    <!-- 增加寻宠订单信息-->
+    <insert id="insertFinds" parameterType="com.zkt.entitys.FindPojo">
+        INSERT INTO finds
+        (fid,fimg,ftype,fname,fcity,ftime,faddress,fontime,fkind,fdesc,userId)
+        VALUES
+        (
+        null,
+        #{fimg},
+        #{ftype},
+        #{fname},
+        #{fcity},
+        #{ftime},
+        #{faddress},
+        #{fontime},
+        #{fkind},
+        #{fdesc},
+        #{userId}
+        )
+    </insert>
+
+    <!--查询字段-->
+    <resultMap type="com.zkt.entitys.FindPojo" id="findsMap">
+        <id property="fid" column="fid"></id>
+        <result property="fimg" column="fimg"/>
+        <result property="fname" column="fname"/>
+        <result property="fcity" column="fcity"/>
+        <result property="ftime" column="ftime"/>
+        <result property="faddress" column="faddress"/>
+        <result property="fdesc" column="fdesc"/>
+        <result property="fkind" column="fkind"/>
+        <collection property="kindPojo" ofType="com.zkt.entitys.KindPojo">
+            <id property="kindId" column="kindId"></id>
+            <result property="kindName" column="kindName"></result>
+        </collection>
+    </resultMap>
+
+    <!--根据种类表id查询finds表-->
+    <select id="getPetsKindIdAndFcity" resultMap="findsMap" parameterType="java.util.Map">
+        SELECT
+        finds.fid,
+        finds.fimg,
+        finds.fname,
+        finds.fcity,
+        finds.ftime,
+        finds.faddress,
+        finds.fdesc,
+        finds.fkind,
+        kind.kindName
+        FROM
+        finds
+        LEFT JOIN kind ON finds.fkind = kind.kindId
+        <where>
+            <if test="fkind != 0"> AND fkind = #{fkind}</if>
+            <if test="fcity != null"> AND fcity = #{fcity}</if>
+        </where>
+    </select>
+
+    <!--根据用户ID查询finds表-->
+    <select id="getPetsUserId" resultType="com.zkt.entitys.FindPojo" parameterType="int">
+        SELECT
+        finds.fid,
+        finds.fimg,
+        finds.fname,
+        finds.fcity,
+        finds.ftime,
+        finds.fdesc,
+        finds.fkind,
+        kind.kindName
+        FROM
+        finds
+        LEFT JOIN kind ON finds.fkind = kind.kindId
+        where userId=#{userId}
+    </select>
+
+    <!--查询字段-->
+    <resultMap type="com.zkt.entitys.FindPojo" id="findsMap12">
+        <id property="fid" column="fid"></id>
+        <result property="fimg" column="fimg"/>
+        <result property="fname" column="fname"/>
+        <result property="fcity" column="fcity"/>
+        <result property="ftime" column="ftime"/>
+        <result property="fdesc" column="fdesc"/>
+        <result property="faddress" column="faddress"/>
+        <result property="fkind" column="fkind"/>
+        <result property="userId" column="userId"/>
+        <collection property="kindPojo" ofType="com.zkt.entitys.KindPojo">
+            <id property="kindId" column="kindId"></id>
+            <result property="kindName" column="kindName"></result>
+        </collection>
+        <collection property="userEntity" ofType="co.zkt.entity.UserEntity">
+            <id property="id" column="id"></id>
+            <result property="username" column="username"></result>
+            <result property="img" column="img"></result>
+            <result property="phone" column="phone"></result>
+        </collection>
+    </resultMap>
+    <!--根据用户ID查询finds表-->
+    <select id="getOneInfo" resultMap="findsMap12" parameterType="int">
+        SELECT
+        finds.*,
+        kind.kindId,
+        kind.kindName,
+        mb_user.id,
+        mb_user.username,
+        mb_user.img,
+        mb_user.phone
+        FROM
+        finds
+        LEFT JOIN kind ON finds.fkind = kind.kindId
+        LEFT JOIN mb_user ON finds.userId = mb_user.id
+        where fid=#{fid}
+    </select>
+</mapper>

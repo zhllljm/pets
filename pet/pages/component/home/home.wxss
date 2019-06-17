@@ -1,0 +1,9 @@
+/* pages/component/home/home.wxss */
+.fa1{
+  margin-top: 15px;
+}
+.im{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

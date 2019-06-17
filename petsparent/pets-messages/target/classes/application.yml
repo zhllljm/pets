@@ -1,0 +1,30 @@
+server:
+  port: 8763
+  context-path: /nessage
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: message
+  activemq:
+    broker-url: tcp://localhost:61616
+    in-memory: true
+    pool:
+      enabled: false
+  mail:
+    host: smtp.exmail.qq.com
+    port: 465
+    protocol: smtp
+    username: 2443435929qq.com  //你的邮箱账号
+    password: vzbllthvikrkdhhc  //你的登陆密码
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+

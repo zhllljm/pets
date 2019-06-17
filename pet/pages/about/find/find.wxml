@@ -1,0 +1,26 @@
+<view class='cm' wx:for="{{shuju}}" wx:key data-id='{{item.fid}}' bindtap='fbtn'>
+  <view class='cm-body flex'>
+    <view class="bxs radius cmb1">
+      <image src='{{item.fimg}}' class='cm-img'></image>
+    </view>
+    <view class="basis-lg  radius cmb2">
+      <view class='cm-n1'>
+      <image src='../../images/tabbar/tou.png' class='cm-n1-img'></image>
+      <text class='cm-n1-nei'>{{item.fcity}}的{{item.kindPojo.kindName}}{{item.fname}}丢失请帮忙</text>
+      </view>
+        <view class='cm-n3'>
+            <view class="flex">
+              <view class="flex-sub  paddings margin-xs radius">
+                <image src='../../images/tabbar/shi1.png' class='cm-n3-img'></image>
+                <text class='cm-n3-nei'>地区:{{item.fcity}}</text>
+              </view>
+              <view class="flex-sub paddings margin-xs radius">
+               <image src='../../images/tabbar/shi.png' class='cm-n3-img'></image>
+                <text class='cm-n3-nei1'>{{item.ftime}}</text>
+              </view>
+
+            </view>
+        </view>
+    </view>
+  </view>
+</view>

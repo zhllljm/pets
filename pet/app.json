@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/main/home/home",
+    "pages/main/help/help",
+    "pages/component/home/home",
+    "pages/plugin/home/home",
+    "pages/plugin/home/sale/sale",
+    "pages/plugin/home/detail/detail",
+    "pages/plugin/cart/cart",
+    "pages/plugin/orders/orders",
+    "pages/about/home/home",
+    "pages/about/userinfo/userinfo",
+    "pages/about/address/address",
+    "pages/about/address/add/add",
+    "pages/about/address/update/update",
+    "pages/about/test/test",
+    "pages/about/order/order",
+    "pages/about/find/find",
+    "pages/about/give/give",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/regist/regist",
+    "pages/give/give",
+    "pages/give/home/home",
+    "pages/give/home/city/city",
+    "pages/give/home/detail/detail",
+    "pages/give/home/apply/apply",
+    "pages/find/find",
+    "pages/find/home/home",
+    "pages/find/home/detail/detail",
+    "pages/chat/chat"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF8C69",
+    "navigationBarTitleText": "宠物帮领养中心",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+
+  "tabBar": {
+    "list": [
+      {
+        "selectedIconPath": "pages/images/tabbar/1.png",
+        "pagePath": "pages/main/home/home",
+        "text": "首页",
+        "iconPath": "pages/images/tabbar/1.png"
+      },
+      {
+        "pagePath": "pages/component/home/home",
+        "text": "发布",
+        "iconPath": "pages/images/tabbar/6.png",
+        "selectedIconPath": "pages/images/tabbar/6.png"
+      },
+      {
+        "pagePath": "pages/plugin/home/home",
+        "text": "义卖",
+        "iconPath": "pages/images/tabbar/7.png",
+        "selectedIconPath": "pages/images/tabbar/7.png"
+      },
+      {
+        "pagePath": "pages/about/home/home",
+        "text": "我的",
+        "iconPath": "pages/images/tabbar/10.png",
+        "selectedIconPath": "pages/images/tabbar/10.png"
+      }
+      
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}

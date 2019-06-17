@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zkt.dao.ItemMapper">
+
+    <resultMap type="com.zkt.entitys.Items" id="wareMap">
+        <id property="wareid" column="wareid"></id>
+        <result property="warename" column="warename"/>
+        <result property="proprice" column="proprice"/>
+        <result property="waretime" column="waretime"/>
+        <result property="waredetailed" column="waredetailed"/>
+        <result property="warefreight" column="warefreight"/>
+        <result property="wareimg" column="wareimg"/>
+        <result property="warestatus" column="warestatus"/>
+        <collection property="itemCat" ofType="com.zkt.entitys.ItemCat">
+            <result property="name" column="name"/>
+        </collection>
+    </resultMap>
+
+    <resultMap type="com.zkt.entitys.ItemCat" id="itemcatMap">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"/>
+        <result property="img" column="img"/>
+        <collection property="items" ofType="com.zkt.entitys.Items">
+        	<id property="wareid" column="wareid"></id>
+            <result property="warename" column="warename"/>
+            <result property="proprice" column="proprice"/>
+            <result property="wareimg" column="wareimg"/>
+            <collection property="wareimgs" ofType="com.zkt.entitys.Wareimg">
+				<result property="limg" column="limg"/>
+			</collection>
+        </collection>
+    </resultMap>
+    <resultMap type="com.zkt.entitys.Items" id="itemandimgMap">
+        <id property="wareid" column="wareid"></id>
+        <result property="warename" column="warename"/>
+        <result property="proprice" column="proprice"/>
+        <result property="wareimg" column="wareimg"/>
+        <collection property="wareimgs" ofType="com.zkt.entitys.Wareimg">
+            <result property="limg" column="limg"/>
+        </collection>
+    </resultMap>
+
+    <resultMap type="com.zkt.entitys.Items" id="itemandimgMaps">
+        <id property="wareid" column="wareid"></id>
+        <result property="warename" column="warename"/>
+        <result property="proprice" column="proprice"/>
+        <result property="warefreight" column="warefreight"/>
+        <collection property="wareimgs" ofType="com.zkt.entitys.Wareimg">
+            <result property="limg" column="limg"/>
+        </collection>
+    </resultMap>
+
+    <insert id="saveItem" parameterType="com.zkt.entitys.Items">
+        insert into items(warename,proprice,waretime,waredetailed,warefreight,warestatus,cid) values(#{warename},#{proprice},now(),#{waredetailed},#{warefreight},#{warestatus},#{cid})
+        <selectKey resultType="int" order="AFTER" keyProperty="wareid">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+
+    <select id="getItemList" resultMap="wareMap">
+        select w.*,c.id,c.name from items w inner join itemcat c on w.cid=c.id
+    </select>
+
+
+    <select id="getItemCatAndItemsList" resultMap="itemcatMap" parameterType="int">
+       SELECT c.*,e.wareid,e.warename,e.proprice, w.limg  FROM itemcat c,items e,wareimg w WHERE c.id= e.cid and e.wareid=w.wareid
+    </select>
+
+    <select id="getItemBycid" resultMap="itemandimgMap">
+        select i.*,w.limg from items i ,wareimg w where cid=#{cid} and i.wareid=w.wareid
+    </select>
+
+    <select id="getItemById" resultMap="itemandimgMaps">
+        select i.* ,w.limg from items i,wareimg w where i.wareid=#{wareid} and i.wareid=w.wareid
+    </select>
+
+    <select id="queryUserLogin" resultType="com.zkt.entitys.Manager">
+        select * from manager where uname=#{uname} and pwd=#{pwd}
+    </select>
+
+</mapper>

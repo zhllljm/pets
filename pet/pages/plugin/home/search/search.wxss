@@ -1,0 +1,54 @@
+/* pages/plugin/home/home.wxss */
+.j{
+  margin-top: 10px
+}
+.sp{
+  height: 50px;
+  width: 50px;
+}
+.sale{
+  margin-top: 10px;
+  height: 74px
+  
+}
+.biao{
+  margin: 0 auto;  
+  display: flex;
+  justify-content: center;
+  padding: 4px
+}
+
+.bi{
+  padding-top: 5px
+}
+
+.min{
+  font-size: 18px;
+  color: orange;
+  padding-left: 5px
+  
+}
+.biao1{
+  display: flex;
+  justify-content: center;
+}
+.ga{
+   float: right;
+}
+
+.pi{
+  margin-top: 10px;
+}
+
+.pi1{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.pi2{
+  margin-right: 10px
+}
+
+.it{
+  margin-top: 30px
+}

@@ -1,0 +1,39 @@
+<form class='fom'>
+  <view class='biao'>宠物帮领养中心注册</view>
+  <view class="cu-form-group margin-top fo" bindtap="changeAvatar">
+		<view class="title">头像上传</view>
+		<view class="cu-avatar radius bg-bule">
+      <image src='{{images}}' class='im'></image>
+    </view>
+	</view>
+  <view class="cu-form-group fo">
+		<view class="title">用户名：</view>
+		<input placeholder="请输入用户名" bindinput="userBlur"></input>
+	</view>
+  <view class="cu-form-group fo">
+		<view class="title">邮件：</view>
+		<input placeholder="请输入邮件" bindinput="mailBlur"></input>
+	</view>
+  <view class="cu-form-group fo">
+		<view class="title">手机：</view>
+		<input placeholder="手机号码" bindinput="accountInput"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-blue">
+				+86
+			</view>
+			<view class="cu-tag line-blue">
+				中国大陆
+			</view>
+		</view>
+	</view>
+  <view class="cu-form-group fo">
+		<view class="title">密码：</view>
+		<input placeholder="请输入密码" password bindblur="pwdBlur"></input>
+	</view>
+  <view class="flex flex-direction">
+    <button class="cu-btn bg-green margin-tb-sm lg" bindtap='register'>注册</button>
+  </view>
+  <view>{{message}}</view>
+</form>
+
+

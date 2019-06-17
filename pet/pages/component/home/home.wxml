@@ -1,0 +1,23 @@
+<view class='fa1'>
+  <view class='im'>
+    <navigator url="../../give/give?id={{Userentity.id}}">
+    <image src='../../images/tabbar/fa1.png' mode="widthFix"></image>
+    </navigator>
+  </view>
+</view>
+<view class='fa1'>
+  <view class='im'>
+    <navigator url="../../find/find?id={{Userentity.id}}">
+    <image src='../../images/tabbar/fa2.png' mode="widthFix"></image>
+    </navigator>
+  </view>
+  
+</view>
+<view class='fa1'>
+  <view class='im'>
+    <navigator url="../logs/logs">
+    <image src='../../images/tabbar/fa3.png' mode="widthFix"></image>
+    </navigator>
+  </view>
+</view>
+

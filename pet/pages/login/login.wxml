@@ -1,0 +1,29 @@
+<form class='fom'>
+  <view class='biao'>宠物帮领养中心登录</view>
+  <view class="cu-form-group margin-top fo">
+		<view class="title">账号</view>
+		<input placeholder="手机号码" bindinput="accountInput"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-blue">
+				+86
+			</view>
+			<view class="cu-tag line-blue">
+				中国大陆
+			</view>
+		</view>
+	</view>
+  <view class="cu-form-group fo">
+		<view class="title">密码</view>
+		<input placeholder="请输入密码" password bindblur="pwdBlur"></input>
+	</view>
+  <view class="flex flex-direction">
+    <button class="cu-btn bg-orange margin-tb-sm lg" bindtap='login'>登录</button>
+  </view>
+  <view class="flex flex-direction">
+    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='sqlogin'>授权登录</button>
+  </view>
+  <view class="flex flex-direction">
+    <button class="cu-btn bg-green margin-tb-sm lg" bindtap='reg'>注册</button>
+  </view>
+  <view>{{message}}</view>
+</form>

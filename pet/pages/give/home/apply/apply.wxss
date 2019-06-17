@@ -1,0 +1,32 @@
+/* pages/give/home/apply/apply.wxss */
+
+.a-body{
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.a-group{
+  width: 90%;
+  height: 70px;
+  margin-top: 10px;
+}
+.a-btn-t{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  margin-right: 5px;
+  border: 1px solid gray
+}
+.a-btn-te{
+  margin-top: 10px;
+  border: 1px solid gray;
+  height: 60px;
+}
+.a-group-1{
+  width: 90%;
+  height: 90px;
+  margin-top: 10px;
+}

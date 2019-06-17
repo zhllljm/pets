@@ -1,0 +1,34 @@
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item" bindtap="swiperclick" data-id='{{item.id}}'>
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </view>
+  </swiper-item>
+</swiper>
+<view class="cu-list grid col-{{gridCol}} border solid{{size}}" style="background-color: #F1F1F1">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*1}}" bindtap="cuclick" data-id='{{item.id}}'>
+      <view class="cuIcon-{{item.icon}} text-{{item.color}} " >
+      </view>
+      <text>{{item.name}}</text>
+      
+    </view>
+  </view>
+  <view class="flex p-xs mb-sm">
+      <view class="flex-sub padding-sm margin-xs fle">
+        <image src='../../images/tabbar/mai2.png' class='fl'></image>
+      </view>
+      <view class="flex-twice padding-sm margin-xs radius fle">
+        <view>
+        <view style='padding-top:10px'>—————公益义卖—————</view>
+        <view class='fle' style='padding-top:15px;font-size:18px'>迈吉客全价通用猫粮3斤</view>
+        <view class='fle' style='padding-top:15px;font-size:14px'>[义卖品]销售额15%用于流浪动物...</view>
+        <view style='padding-top:10px' class='fle'>
+              <button class='cu-btn round bg-orange shadow' bindtap='xian'>查看详情</button>
+        </view>
+        </view>
+      </view>
+    </view>
+
+
+

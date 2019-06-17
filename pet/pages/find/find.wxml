@@ -1,0 +1,65 @@
+<form class='fo'>
+  <view class="cu-form-group margin-top fo" bindtap="changeAvatar">
+		<view class="title">宠物照片</view>
+		<view class="cu-avatar radius bg-bule">
+      <image src='{{im}}' class='im'></image>
+    </view>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">宠物昵称</view>
+		<input placeholder="宠物昵称（限5个字内）" bindinput="niBlur"></input>
+	</view>
+  <radio-group class="block" bindchange="leichange">
+		<view class="cu-form-group" >
+			<view class="title">发布类型</view>
+			<view>
+        丢失：<radio value='1'></radio>
+        捡到：<radio value='2'></radio>
+			</view>
+		</view>
+	</radio-group>
+  <view class="cu-form-group">
+		<view class="title">所在城市</view>
+		<input bindinput="cityBlur"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">日期选择</view>
+		<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group fo">
+		<view class="title">丢失地址</view>
+		<input bindinput="tuBlur" placeholder='请输入详细地址'></input>
+	</view>
+  <radio-group class="block" bindchange="daychange">
+		<view class="cu-form-group" >
+			<view class="title">有效时间(天)</view>
+			<view>
+        10：<radio value='10'></radio>
+        20：<radio value='20'></radio>
+        30：<radio value='30'></radio>
+			</view>
+		</view>
+	</radio-group>
+  <radio-group class="block" bindchange="zongchange">
+		<view class="cu-form-group" >
+			<view class="title">种类</view>
+			<view>
+        <block wx:key="zhong" wx:for="{{zhong}}">
+				  {{item.name}}：<radio value='{{item.id}}'></radio>
+        </block>
+			</view>
+		</view>
+	</radio-group>
+  <view class="cu-form-group align-start">
+		<view class="title">宠物描述</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入宠物描述"></textarea>
+	</view>
+</form>
+
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-red margin-tb-sm lg" bindtap='tibtn'>提交</button>
+</view>

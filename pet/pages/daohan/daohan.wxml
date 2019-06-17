@@ -1,0 +1,30 @@
+<basics wx:if="{{PageCur=='main'}}"></basics>
+<component wx:if="{{PageCur=='component'}}"></component>
+<plugin wx:if="{{PageCur=='plugin'}}"></plugin>
+<about wx:if="{{PageCur=='about'}}"></about>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="main">
+    <view class='cuIcon-cu-image'>
+      <image src="/pages/images/tabbar/10.png"></image>
+    </view>
+    <view>首页</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="component">
+    <view class='cuIcon-cu-image'>
+      <image src="/pages/images/tabbar/6.png"></image>
+    </view>
+    <view>发布</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="plugin">
+    <view class='cuIcon-cu-image'>
+      <image src="/pages/images/tabbar/7.png"></image>
+    </view>
+    <view>义卖</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="about">
+    <view class='cuIcon-cu-image'>
+      <image src="/pages/images/tabbar/1.png"></image>
+    </view>
+    <view>我的</view>
+  </view>
+</view>

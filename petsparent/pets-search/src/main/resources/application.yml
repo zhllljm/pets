@@ -1,0 +1,45 @@
+server:
+  port: 8767
+#  context-path: /member
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: solr
+  redis:
+    host: 119.23.74.128
+    port: 6379
+    pool:
+      max-idle: 100
+      min-idle: 1
+      max-active: 1000
+      max-wait: -1
+  datasource:
+    name: test
+    url: jdbc:mysql://119.23.74.128:3306/pets-content
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  data:
+    solr:
+      host: http://119.23.74.128:8081/solr/collection1
+
+mybatis:
+  mapper-locations: classpath:spring/*.xml
+  type-aliases-package: com.zkt.dao

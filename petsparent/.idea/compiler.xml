@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pets-address" />
+        <module name="pets-api-address" />
+        <module name="pets-api-cart" />
+        <module name="pets-api-chat" />
+        <module name="pets-api-content" />
+        <module name="pets-api-find" />
+        <module name="pets-api-give" />
+        <module name="pets-api-member" />
+        <module name="pets-api-order" />
+        <module name="pets-api-search" />
+        <module name="pets-cart" />
+        <module name="pets-chat" />
+        <module name="pets-common" />
+        <module name="pets-content" />
+        <module name="pets-content-web" />
+        <module name="pets-eureka" />
+        <module name="pets-find" />
+        <module name="pets-give" />
+        <module name="pets-member" />
+        <module name="pets-messages" />
+        <module name="pets-order" />
+        <module name="pets-search" />
+        <module name="petsapicontent" />
+        <module name="petscommon" />
+        <module name="petscontent" />
+        <module name="petscontentweb" />
+        <module name="petseureka" />
+        <module name="petsmember" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pets-api.search" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="pets-api-member" options="" />
+      <module name="pets-messages" options="" />
+      <module name="petscommon" options="" />
+      <module name="petscontentweb" options="" />
+      <module name="petseureka" options="" />
+      <module name="petsmember" options="" />
+    </option>
+  </component>
+</project>

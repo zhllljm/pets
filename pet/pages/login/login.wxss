@@ -1,0 +1,42 @@
+.content{
+  margin-top: 40px;
+}
+.account{
+   display: flex;
+   flex-direction: row;
+   padding-left: 20px;
+   padding-top: 20px;
+   padding-bottom: 10px;
+   width: 90%;
+}
+.title{
+   margin-right: 30px;
+   font-weight: bold;
+}
+.hr{
+  border: 1px solid #cccccc;
+  opacity: 0.2;
+  width: 90%;
+  margin: 0 auto;
+  background-color: red;
+}
+.btn{
+  width: 90%;
+  margin-top:40px;
+  color: #999999;
+}
+.fo{
+  background: #F1F1F1
+}
+.fom{
+  padding-top: 100px;
+  border: 2px
+}
+
+.biao{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}

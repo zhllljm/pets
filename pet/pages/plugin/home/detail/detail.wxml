@@ -1,0 +1,97 @@
+
+<view class='de'>
+<!--商品轮播图-->
+<swiper class="screen-swiper square-dot bg-white" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{itemList.wareimgs}}" wx:key="index">
+        <image src="{{item.limg}}" mode='aspectFill'></image>
+    </swiper-item>
+</swiper>
+
+<!--商品价格-->
+<view class="bg-white canui-goods-box" style="padding-top:30rpx;">
+    <text class="text-price text-red text-xl">{{itemList.proprice}}</text>
+</view>
+
+<!--商品名称-->
+<view class="bg-white canui-goods-box canui-xzwz text-black">{{itemList.warename}}</view>
+
+<!--商品属性-->
+<view class="bg-white grid col-3 canui-goods-box text-gray text-sm">
+    <view class='padding-sm'>剩余：{{itemList.warefreight}}</view>
+    <view class='padding-sm text-center'>销量：{{itemList.xl}}笔</view>
+    <view class='padding-sm text-right'>快递:包邮</view>
+</view>
+
+<!--商品详情-->
+<view class="bg-white n" bindtap="showModal" data-target="bottomModal">
+      <text class='n1'>请选择购买数量:</text>
+      <text class='text-red n1'>{{itemList.warename}}</text>
+      <text class='text-red n1'>{{num}}</text>
+</view>
+
+<!--商品详情-->
+<view class="cu-bar bg-white margin-top solid-bottom">
+    <view class='action'>
+        <text class='icon-title text-red'></text>
+        <text>商品详情</text>
+    </view>
+</view>
+<view class="bg-white padding cauni-details-box">
+    {{itemList.waredetailed}}
+</view>
+
+</view>
+
+<view class="cu-bar bg-white tabbar border shop a">
+    <button class="action" open-type="contact">
+      <view class="cuIcon-service text-green">
+      </view> 客服
+    </button>
+    <view class="action" bindtap='cartbtn'>
+      <view class="cuIcon-cart">
+      </view>
+      购物车
+    </view>
+    <view class="btn-group">
+      <button class="cu-btn bg-orange round shadow-blur" bindtap="showModal" data-target="bottomModal">加入购物车</button>
+      <button class="cu-btn bg-red round shadow-blur"  bindtap="showModal" data-target="bottomModal" >立即订购</button>
+    </view>
+  </view>
+  <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-green"></view>
+      <view class="action text-blue" bindtap="hideModal">返回</view>
+    </view>
+    <view class='it'>
+      <view class="flex p-xs margin-bottom-sm mb-sm">
+        <view class="flex-sub itemimg radius">
+          <image class='itemimg' src='../../../images/tabbar/1.png'></image>
+        </view>
+        <view class="flex-twice padding-sm margin-xs radius">
+          <view class='co1'>{{itemList.proprice}}</view>
+          <view class='co2'>库存:{{itemList.warefreight}}件</view>
+        </view>
+      </view>
+    </view>
+    <view class='lei'>
+          <view class='lei1'>类型</view>
+          <view class='lei1'>{{itemList.warename}}</view>
+      </view>
+      <view class='buynum'>
+        <view class="flex p-sm margin-bottom-sm mb-sm">
+      <view class="flex-sub padding-sm margin-xs radius">购买数量</view>
+      <view class="flex-twice padding-sm margin-xs radius">
+      <text class="cart-count-down cuIcon-pullleft text-red" bindtap="cdown"></text>
+      <text class="cart-count-num">{{num}}</text>
+      <text class="cart-count-add cuIcon-pullright text-red" bindtap="cadd"></text>
+      </view>
+    </view>
+    </view>
+    <view class="flex v">
+      <button class="flex-sub bg-green" bindtap='gocar'>加入购物车</button>
+      <button class="flex-sub bg-red" bindtap='goorder'>立即购买</button>
+    </view>
+  
+</view>
+</view>
